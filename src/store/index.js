@@ -40,7 +40,7 @@ const store = new Vuex.Store({
     actions: {
         async history({ commit }, token) {
             try {
-                let {data: {data: res = []}} = await axios.get('http://localhost:8008/api/history', {headers: {'token': token}})
+                let {data: {data: res = []}} = await axios.get('http://autoshop.local:8080/api/history', {headers: {'token': token}})
                 commit('set', {type: 'history', items: res})
             } catch (e) {
                 error(this, 'Cant show history')
@@ -50,7 +50,7 @@ const store = new Vuex.Store({
 
             if(_.isObject(token)) {
                 try {
-                    let response = await axios.post('http://localhost:8008/api/auth', token)
+                    let response = await axios.post('http://autoshop.local:8080/api/auth', token)
                     token = _.get(response, 'data.data.token')
                 } catch (e) {
                     error(this, 'Cant get token')
@@ -71,7 +71,7 @@ const store = new Vuex.Store({
         },
         async autolist({commit}) {
             try {
-                let {data: {data: res}} = await axios.get('http://localhost:8008/api/auto')
+                let {data: {data: res}} = await axios.get('http://autoshop.local:8080/api/auto')
                 console.log(res);
                 commit('set', {type: 'autolist', items: res})
             } catch (e) {

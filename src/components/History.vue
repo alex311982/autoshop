@@ -1,7 +1,7 @@
 <template>
     <div id="history" v-if="history.length">
             <b-table class="table table-striped table-hover" :items="history" :fields="fields">
-                <template slot="date" scope="data">
+                <template slot="date" slot-scope="data">
                     {{data.item.date | date}}
                 </template>
             </b-table>

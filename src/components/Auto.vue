@@ -2,7 +2,7 @@
     <div id="auto">
 
         <b-table class="table table-striped table-hover" :items="autolist" :fields="fields">
-            <template slot="details" scope="data">
+            <template slot="details" slot-scope="data">
                 <router-link :to="{ name: 'autodetails', params: {id: data.item.id} }" class="nav-item nav-link">Auto</router-link>
             </template>
         </b-table>
